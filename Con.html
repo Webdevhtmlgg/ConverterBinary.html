@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('3.jpg');
+    }
+    .container {
+      margin-top: 50px;
+      color:red;
+      font-size: 50px;
+    }
+    input, button {
+      padding: 100px;
+      margin: 50px;
+      color:green;
+      font-size: 50px;
+    }
+    h1 {
+      color:green;
+      font-size: 100px;
+    }
+    .button {
+      color:green;
+      font-size: 50px;
+    }
+    output {
+      font-size: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1> Webdev Binary Converter</h1>
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button onclick="convertToBinary()">Convert to Binary</button>
+    <input type="text" id="binaryInput" placeholder="Enter binary code">
+    <button onclick="convertToText()">Convert to Text</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function convertToBinary() {
+      const text = document.getElementById("textInput").value;
+      const binary = text.split('').map(char => char.charCodeAt(0).toString(2)).join(' ');
+      document.getElementById("output").textContent = binary;
+    }
+
+    function convertToText() {
+      const binary = document.getElementById("binaryInput").value;
+      const text = binary.split(' ').map(bin => String.fromCharCode(parseInt(bin, 2))).join('');
+      document.getElementById("output").textContent = text;
+    }
+  </script>
+</body>
+</html>
